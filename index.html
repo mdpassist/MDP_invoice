@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MDP Assist | Invoice Generator</title>
+
+    <meta name="description" content="MDP Assist Invoice Generator">
+
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <img src="assets/logo.png" alt="MDP Assist Logo" class="logo">
+
+    <div class="company-info">
+
+        <h1>MDP ASSIST</h1>
+
+        <p>Credit Checks • Local & International</p>
+
+        <a href="https://mdpassist.github.io/" target="_blank">
+            https://mdpassist.github.io/
+        </a>
+
+    </div>
+
+</header>
+
+<main class="invoice">
+
+<section class="invoice-header">
+
+<div class="left">
+
+<h2>TAX INVOICE</h2>
+
+<label>Invoice Number</label>
+<input type="text" id="invoiceNumber" readonly>
+
+<label>Date</label>
+<input type="date" id="invoiceDate">
+
+</div>
+
+<div class="right">
+
+<label>Customer Name</label>
+<input type="text" id="customerName">
+
+<label>Company</label>
+<input type="text" id="companyName">
+
+<label>VAT Number</label>
+<input type="text" id="vatNumber">
+
+</div>
+
+</section>
+
+<section class="invoice-table">
+
+<table id="invoiceTable">
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Description</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td><input type="date"></td>
+
+<td><input type="text" placeholder="Credit Check"></td>
+
+<td><input type="number" value="1"></td>
+
+<td><input type="number" value="0.00"></td>
+
+<td class="rowTotal">R0.00</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<button id="addRow">
++ Add Line
+</button>
+
+</section>
+
+<section class="totals">
+
+<table>
+
+<tr>
+
+<td>Subtotal</td>
+
+<td id="subtotal">
+R0.00
+</td>
+
+</tr>
+
+<tr>
+
+<td>VAT</td>
+
+<td id="vat">
+R0.00
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Total</strong></td>
+
+<td id="grandTotal">
+<strong>R0.00</strong>
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section class="bank">
+
+<h3>Banking Details</h3>
+
+<p><strong>Bank:</strong> ABSA</p>
+
+<p><strong>Branch:</strong> Universal</p>
+
+<p><strong>Branch Code:</strong> 632005</p>
+
+<p><strong>Account Number:</strong> **********</p>
+
+<p><strong>Reference:</strong> Company Name</p>
+
+</section>
+
+<section class="buttons">
+
+<button id="saveDraft">
+💾 Save Draft
+</button>
+
+<button id="openDraft">
+📂 Open Draft
+</button>
+
+<button id="downloadPDF">
+📄 Download PDF
+</button>
+
+<button id="printInvoice">
+🖨 Print
+</button>
+
+<button id="newInvoice">
+🆕 New Invoice
+</button>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 MDP Assist • Credit Checks Local & International
+</p>
+
+<a href="https://mdpassist.github.io/" target="_blank">
+https://mdpassist.github.io/
+</a>
+
+</footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
