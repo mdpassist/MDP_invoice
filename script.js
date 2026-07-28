@@ -1871,3 +1871,37 @@ window.addEventListener(
 );
 });
 });
+/*=========================
+  SIMPLE PASSWORD
+=========================*/
+
+const PASSWORD = "Uncle";
+
+if (
+    window.location.pathname.endsWith("index.html") ||
+    window.location.pathname.endsWith("/") ||
+    window.location.pathname === ""
+) {
+
+    const entered = prompt("Enter Password");
+
+    if (entered !== PASSWORD) {
+
+        alert("Incorrect Password");
+
+        document.body.innerHTML = `
+            <h1 style="
+                color:red;
+                text-align:center;
+                margin-top:100px;
+                font-family:Arial;
+            ">
+                Access Denied
+            </h1>
+        `;
+
+        throw new Error("Access denied");
+
+    }
+
+}
