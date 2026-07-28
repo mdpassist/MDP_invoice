@@ -1,67 +1,92 @@
+/* ==========================================================
+   MDP ASSIST
+   Professional Invoice System
+========================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
 
-    background:#0f1114;
+    background:#111417;
 
-    color:white;
+    color:#f5f5f5;
 
     min-height:100vh;
 
-    overflow-x:hidden;
-
 }
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1b1f23;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#5fd100;
+    border-radius:20px;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
 
 .background{
 
     position:fixed;
 
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
+    inset:0;
 
     background:
-    radial-gradient(circle at top,#62d40022 0%,transparent 45%),
-    radial-gradient(circle at bottom,#62d40011 0%,transparent 45%),
-    linear-gradient(180deg,#0f1114,#181b20);
+    radial-gradient(circle at top,#65d50020 0%,transparent 45%),
+    radial-gradient(circle at bottom,#65d50010 0%,transparent 50%),
+    linear-gradient(#111417,#191d22);
 
-    z-index:-2;
+    z-index:-1;
 
 }
 
 .dashboard{
 
-    width:95%;
-    max-width:1100px;
+    width:94%;
+
+    max-width:1200px;
 
     margin:40px auto;
 
-    background:#1b1f24;
+    background:#1c2025;
 
-    border:1px solid #2d333b;
+    border:1px solid #2e3338;
 
-    border-radius:18px;
+    border-radius:20px;
 
-    box-shadow:
-    0 0 40px rgba(0,0,0,.5),
-    0 0 20px rgba(98,212,0,.08);
+    padding:50px;
 
     text-align:center;
 
-    padding:50px;
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.45),
+
+    0 0 35px rgba(95,209,0,.10);
 
 }
 
 .logo{
 
-    width:420px;
+    width:430px;
 
     max-width:100%;
 
@@ -69,29 +94,31 @@ body{
 
 }
 
-h1{
+.dashboard h1{
+
+    color:#69d800;
 
     font-size:54px;
 
-    color:#72e000;
-
-    letter-spacing:2px;
-
-    margin-bottom:8px;
+    letter-spacing:3px;
 
 }
 
 .subtitle{
 
-    color:#c8c8c8;
+    color:#d3d3d3;
 
-    font-size:20px;
+    margin-top:10px;
+
+    font-size:19px;
 
     letter-spacing:3px;
 
-    margin-bottom:45px;
-
 }
+
+/* =========================
+   MENU
+========================= */
 
 .menu{
 
@@ -101,25 +128,27 @@ h1{
 
     gap:25px;
 
+    margin-top:45px;
+
 }
 
 .menu button{
 
-    background:#23282f;
+    background:#24292f;
 
-    border:2px solid #63d400;
+    color:white;
+
+    border:2px solid #66d700;
 
     border-radius:15px;
 
-    color:white;
+    padding:30px;
 
     cursor:pointer;
 
     transition:.25s;
 
-    padding:30px;
-
-    font-size:22px;
+    font-size:24px;
 
 }
 
@@ -135,56 +164,446 @@ h1{
 
 .menu button:hover{
 
-    background:#63d400;
+    background:#66d700;
 
     color:black;
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
-    box-shadow:0 0 25px rgba(98,212,0,.5);
+    box-shadow:0 0 25px rgba(102,215,0,.45);
 
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 .footer{
 
-    margin-top:50px;
+    margin-top:45px;
 
-    color:#9a9a9a;
+    color:#9b9b9b;
 
     font-size:14px;
 
 }
 
-@media(max-width:700px){
+/* =========================
+   INVOICE PAGE
+========================= */
 
-.logo{
+.invoicePage{
 
-    width:280px;
+    background:#e7e7e7;
 
-}
-
-h1{
-
-    font-size:36px;
+    padding:40px;
 
 }
 
-.subtitle{
+.invoiceContainer{
+
+    width:210mm;
+
+    min-height:297mm;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.18);
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.invoiceHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:30px;
+
+    border-bottom:5px solid #66d700;
+
+}
+
+.invoiceLogo{
+
+    width:430px;
+
+    max-width:65%;
+
+}
+
+.invoiceInfo{
+
+    width:290px;
+
+}
+
+.invoiceInfo h1{
+
+    color:#444;
+
+    text-align:right;
+
+    font-size:38
+    /* ==========================================================
+   PART 2
+   TABLES • TOTALS • BUTTONS • PRINT • RESPONSIVE
+==========================================================*/
+
+
+/*==========================
+  INVOICE ITEMS TABLE
+==========================*/
+
+.itemsTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.itemsTable thead{
+
+    background:#66d700;
+
+    color:white;
+
+}
+
+.itemsTable th{
+
+    padding:14px;
+
+    font-size:15px;
+
+    text-align:left;
+
+}
+
+.itemsTable td{
+
+    border:1px solid #d9d9d9;
+
+    padding:8px;
+
+}
+
+.itemsTable input{
+
+    width:100%;
+
+    border:none;
+
+    padding:10px;
+
+    font-size:14px;
+
+    outline:none;
+
+}
+
+.itemsTable input:focus{
+
+    background:#f6fff0;
+
+}
+
+.itemsTable button{
+
+    background:#e53935;
+
+    color:white;
+
+    border:none;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.itemsTable button:hover{
+
+    background:#c62828;
+
+}
+
+/*==========================
+  BUTTONS
+==========================*/
+
+.greenButton{
+
+    background:#66d700;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.greenButton:hover{
+
+    background:#56b600;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(102,215,0,.35);
+
+}
+
+.buttonBar{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    padding:35px;
+
+}
+
+/*==========================
+  TOTALS
+==========================*/
+
+.totals{
+
+    width:360px;
+
+    margin-left:auto;
+
+    margin-right:30px;
+
+    margin-top:25px;
+
+}
+
+.totals table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.totals td{
+
+    border:1px solid #d6d6d6;
+
+    padding:12px;
+
+    color:#333;
 
     font-size:15px;
 
 }
 
-.dashboard{
+.grand{
 
-    padding:25px;
+    background:#66d700;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
 
 }
 
-.menu{
+/*==========================
+  INPUTS
+==========================*/
+
+input,
+textarea,
+select{
+
+    transition:.2s;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:#66d700;
+
+    box-shadow:0 0 10px rgba(102,215,0,.25);
+
+}
+
+/*==========================
+  PRINT
+==========================*/
+
+@media print{
+
+body{
+
+    background:white;
+
+    padding:0;
+
+}
+
+.background,
+.buttonBar{
+
+    display:none;
+
+}
+
+.invoiceContainer{
+
+    width:100%;
+
+    margin:0;
+
+    border-radius:0;
+
+    box-shadow:none;
+
+}
+
+.card{
+
+    break-inside:avoid;
+
+}
+
+}
+
+/*==========================
+  MOBILE
+==========================*/
+
+@media(max-width:900px){
+
+.invoiceContainer{
+
+    width:100%;
+
+}
+
+.invoiceHeader{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.invoiceLogo{
+
+    max-width:100%;
+
+    width:320px;
+
+    margin-bottom:20px;
+
+}
+
+.invoiceInfo{
+
+    width:100%;
+
+}
+
+.grid2{
 
     grid-template-columns:1fr;
 
 }
 
+.buttonBar{
+
+    flex-direction:column;
+
 }
+
+.greenButton{
+
+    width:100%;
+
+}
+
+}
+
+/*==========================
+  ANIMATIONS
+==========================*/
+
+.card,
+.dashboard,
+.menu button{
+
+    animation:fadeIn .5s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/*==========================
+  SELECTION
+==========================*/
+
+::selection{
+
+    background:#66d700;
+
+    color:white;
+
+    }
