@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>New Invoice - MDP Assist</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="invoicePage">
+
+<div class="invoiceContainer">
+
+    <!-- HEADER -->
+
+    <div class="invoiceHeader">
+
+        <img src="logo2.png" class="invoiceLogo">
+
+        <div class="invoiceInfo">
+
+            <h1>TAX INVOICE</h1>
+
+            <table>
+
+                <tr>
+                    <td>Invoice No</td>
+                    <td><input id="invoiceNo" value="INV-000001"></td>
+                </tr>
+
+                <tr>
+                    <td>Date</td>
+                    <td><input type="date" id="invoiceDate"></td>
+                </tr>
+
+                <tr>
+                    <td>Due Date</td>
+                    <td><input type="date"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- CLIENT -->
+
+    <div class="card">
+
+        <h2>Client Information</h2>
+
+        <div class="grid2">
+
+            <input placeholder="Company Name">
+
+            <input placeholder="VAT Number">
+
+            <input placeholder="Contact Person">
+
+            <input placeholder="Telephone">
+
+            <input placeholder="Email">
+
+            <input placeholder="Reference">
+
+        </div>
+
+        <textarea placeholder="Company Address"></textarea>
+
+    </div>
+
+    <!-- ITEMS -->
+
+    <div class="card">
+
+        <h2>Invoice Items</h2>
+
+        <table class="itemsTable">
+
+            <thead>
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Description</th>
+
+                <th>Qty</th>
+
+                <th>Price</th>
+
+                <th>Total</th>
+
+                <th></th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="invoiceBody">
+
+            </tbody>
+
+        </table>
+
+        <button class="greenButton" onclick="addRow()">
+
+            + Add Item
+
+        </button>
+
+    </div>
+
+    <!-- TOTALS -->
+
+    <div class="totals">
+
+        <table>
+
+            <tr>
+
+                <td>Subtotal</td>
+
+                <td id="subtotal">R0.00</td>
+
+            </tr>
+
+            <tr>
+
+                <td>VAT (15%)</td>
+
+                <td id="vat">R0.00</td>
+
+            </tr>
+
+            <tr class="grand">
+
+                <td>Total Due</td>
+
+                <td id="grandTotal">R0.00</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- BANK -->
+
+    <div class="card">
+
+        <h2>Bank Details</h2>
+
+        <div class="grid2">
+
+            <input placeholder="Bank">
+
+            <input placeholder="Branch">
+
+            <input placeholder="Branch Code">
+
+            <input placeholder="Account Number">
+
+            <input placeholder="Account Name">
+
+            <input placeholder="Reference">
+
+        </div>
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <div class="buttonBar">
+
+        <button class="greenButton">
+
+            💾 Save
+
+        </button>
+
+        <button class="greenButton">
+
+            🖨 Print
+
+        </button>
+
+        <button class="greenButton">
+
+            📄 Export PDF
+
+        </button>
+
+        <button class="
